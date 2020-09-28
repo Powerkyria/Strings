@@ -17,11 +17,22 @@ function one(text) {
 	if (text === '') {
 		return 0;
 	} else if (text.includes(' ')) {
-		return 2;
+		return ' ' + 1;
 	} else if (text != '' && !text.includes(' ')) {
-        return 1;
-    }
+		return 1;
+	}
 }
 
 const wordNumber = one('Mi casa nueva');
-console.log(wordNumber);
+// console.log(wordNumber);
+
+function countSpace(text) {
+    let acc= 0;
+	for(let i = 0; i <= text.length; i++) {
+        acc = acc + 1;
+    }
+    return acc;
+}
+
+const spaceNumber = countSpace('Mi casa nueva');
+console.log(spaceNumber);
