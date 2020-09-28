@@ -29,7 +29,9 @@ const wordNumber = one('Mi casa nueva');
 function countSpace(text) {
     let acc= 0;
 	for(let i = 0; i <= text.length; i++) {
-        acc = acc + 1;
+        if(text.charAt(i) === ' '){
+            acc = acc + 1;
+        }
     }
     return acc;
 }
