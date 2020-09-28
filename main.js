@@ -16,10 +16,12 @@
 function one(text) {
 	if (text === '') {
 		return 0;
-	} else {
-		return 1;
-	}
+	} else if (text.includes(' ')) {
+		return 2;
+	} else if (text != '' && !text.includes(' ')) {
+        return 1;
+    }
 }
 
-const wordNumber = one('Mi pc');
+const wordNumber = one('Mi casa nueva');
 console.log(wordNumber);
