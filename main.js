@@ -26,6 +26,7 @@ function one(text) {
 const wordNumber = one('Mi casa nueva');
 // console.log(wordNumber);
 
+
 function countSpace(text) {
     let acc= 0;
 	for(let i = 0; i <= text.length; i++) {
