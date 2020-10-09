@@ -13,7 +13,6 @@ function wordsCounter(text){
     }
 }
 
-
 function spaceCount(text){
     let acc=0;
 
@@ -35,4 +34,3 @@ const case2= wordsCounter('Templo');
 console.log(case2);
 const case3= wordsCounter('ordenador de segunda mano');
 console.log(case3);
-
