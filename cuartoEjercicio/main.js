@@ -4,9 +4,9 @@
 
 function upperCaseToFirstChar (word){
     const upper= word.charAt(0).toUpperCase();
-    const lowWord= word.substring(1,8);
+    const lowWord= word.substring(1,word.lenght);
     return `${upper}${lowWord}`;
 }
 
-const newWord= upperCaseToFirstChar('caracter');
+const newWord= upperCaseToFirstChar('maravilloso');
 console.log(newWord);
