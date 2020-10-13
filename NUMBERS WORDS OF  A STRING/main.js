@@ -1,6 +1,6 @@
 'use strict';
 
-// Dado un string decir cuantas palabras hay
+// DADO UN STRING DECIR CUANTAS PALABRAS HAY
 
 function wordsCounter(text){
 
