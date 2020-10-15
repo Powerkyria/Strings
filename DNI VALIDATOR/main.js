@@ -32,9 +32,27 @@ const result = validateDNIHasNumbers('45706768H');
 // console.log(result);
 
 function checkLastPositionIsLetter(dni) {
-	const lastChar = dni.charAt(dni.length-1);
-    return /[a-z]/i.test(lastChar);
+	const lastChar = dni.charAt(dni.length - 1);
+	return /[a-z]/i.test(lastChar);
 }
 
 const result2 = checkLastPositionIsLetter('45706768H');
-console.log(result2);
+// console.log(result2);
+
+function longDNI(dni) {
+	return dni.length === 9;
+}
+
+const result3 = longDNI('45706768H');
+// console.log(result3);
+
+function isDNI(dni) {
+	const hasNumber = validateDNIHasNumbers(dni);
+	const hasLetter = checkLastPositionIsLetter(dni);
+	const isRightlength = longDNI(dni);
+
+	return hasNumber && hasLetter && isRightlength;
+}
+
+const finalResult = isDNI('45706768H');
+console.log(finalResult);
