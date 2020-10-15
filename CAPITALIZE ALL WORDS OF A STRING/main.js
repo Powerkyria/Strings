@@ -17,35 +17,35 @@ const mySentence = firstChar('esto es una crazy party full de mango');
 
 // 1.1 MANERA LARRRRRGA SPAGUETI
 
-// function findSpaces(sentence) {
-// 	const upper = sentence.indexOf(' ') + 1;
+function findSpaces(sentence) {
+	const upper = sentence.indexOf(' ') + 1;
 
-// 	const paintLetter = sentence.charAt(upper).toUpperCase();
+	const paintLetter = sentence.charAt(upper).toUpperCase();
 
-// 	const join =
-// 		sentence.slice(0, upper) + paintLetter + sentence.slice(upper + 1);
+	const join =
+		sentence.slice(0, upper) + paintLetter + sentence.slice(upper + 1);
 
-// 	// console.log(join)
+	console.log(join)
 
-// 	const upper2 = sentence.indexOf(' ', upper) + 1;
+	const upper2 = sentence.indexOf(' ', upper) + 1;
 
-// 	const paintSecondLetter = sentence.charAt(upper2).toUpperCase();
+	const paintSecondLetter = sentence.charAt(upper2).toUpperCase();
 
-// 	const join2 =
-// 		join.slice(0, upper2) + paintSecondLetter + sentence.slice(upper2 + 1);
+	const join2 =
+		join.slice(0, upper2) + paintSecondLetter + sentence.slice(upper2 + 1);
 
-// 	// console.log(join2);
+	console.log(join2);
 
-// 	const upper3 = sentence.indexOf(' ', upper2) + 1;
+	const upper3 = sentence.indexOf(' ', upper2) + 1;
 
-// 	const paintThirdLetter = sentence.charAt(upper3).toUpperCase();
-// 	const join3 =
-// 		join.slice(0, upper3) + paintThirdLetter + sentence.slice(upper3 + 1);
+	const paintThirdLetter = sentence.charAt(upper3).toUpperCase();
+	const join3 =
+		join.slice(0, upper3) + paintThirdLetter + sentence.slice(upper3 + 1);
 
-// 	// console.log(join3);
-// }
+	console.log(join3);
+}
 
-// findSpaces(mySentence);
+findSpaces(mySentence);
 
 // 1.2 COVERTIR PRIMER CARACTER DE UN STRIG DE VARIAS PALABRAS A MAYUSCULA SOLUCION BUSCADA
 
@@ -76,6 +76,27 @@ function capitalizeFirstLetters(sentence) {
 }
 const result = capitalizeFirstLetters(mySentence);
 console.log(result);
+
+
+
+// SOLUCION CON WHILE
+
+
+function wordCapitalize(sentence){
+	let charPositionToUpdate = 0;
+	while(charPositionToUpdate != -1){
+		const newChar = sentence.charAt(charPositionToUpdate).toUpperCase();
+		sentence = sentence.slice(0, charPositionToUpdate) + newChar + sentence.slice(charPositionToUpdate + 1);
+		charPositionToUpdate = sentence.indexOf(' ', charPositionToUpdate) == -1 
+			? -1 
+			: sentence.indexOf(' ', charPositionToUpdate) +1;
+	}
+	return sentence;
+}
+
+const resultWhile = wordCapitalize('esto es un bucle while');
+console.log(resultWhile);
+
 
 // 1.4 COVERTIR PRIMER CARACTER DE UN STRING DE VARIAS PALABRAS A MAYUSCULA JG
 
