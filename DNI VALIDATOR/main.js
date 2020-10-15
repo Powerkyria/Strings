@@ -2,7 +2,9 @@
 
 /* Validar si el dni es correcto
 
- 1. Comprueba que tenga 8 numero, una letra y una longitud de 9
+ 1. Comprueba que tenga 8 numero, 
+    que el ultimo digito tenga una letra y 
+    una longitud de 9
 
 2. Coge el numeros del DNI y lo divides entre 23 y compruebas por la tabla que es la letra correcta
 
@@ -27,8 +29,12 @@ function validateDNIHasNumbers(dni) {
 }
 
 const result = validateDNIHasNumbers('45706768H');
-console.log(result);
+// console.log(result);
 
+function checkLastPositionIsLetter(dni) {
+	const lastChar = dni.charAt(dni.length-1);
+    return /[a-z]/i.test(lastChar);
+}
 
-
-
+const result2 = checkLastPositionIsLetter('45706768H');
+console.log(result2);
