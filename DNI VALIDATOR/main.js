@@ -59,7 +59,7 @@ function isDNI(dni) {
 const finalResult = isDNI('45706768H');
 // console.log(finalResult);
 
-// 2
+// 2. Dividir el numeros del DNI entre 23 y sabiendo su resto comprobar por la tabla que es la letra correcta
 
 // quiero los 8 primeros numeros
 // dividirlos entre 23 y saber su resto
@@ -81,6 +81,9 @@ const finalResult = isDNI('45706768H');
 
 // const resultCheckLetter = checkDNILetter('45706768H', 23);
 // console.log(resultCheckLetter);
+
+
+// 2. Dividir el numeros del DNI entre 23 y sabiendo su resto comprobar por la tabla que es la letra correcta
 
 
 // SIN CONVERTIR EL STRING EN ARRAY
