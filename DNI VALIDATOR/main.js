@@ -6,7 +6,7 @@
     que el ultimo digito tenga una letra y 
     una longitud de 9
 
-2. Coge el numeros del DNI y lo divides entre 23 y compruebas por la tabla que es la letra correcta
+2. Dividir el numeros del DNI entre 23 y sabiendo su resto comprobar por la tabla que es la letra correcta
 
 Is Not a Number
 
@@ -14,6 +14,8 @@ isNaN si es un numero devuelve false
 isNaN si no es un numero devuelve true
 
 */
+
+// 1
 
 function validateDNIHasNumbers(dni) {
 	const calculateEightPositions = dni.length - 1;
@@ -55,4 +57,27 @@ function isDNI(dni) {
 }
 
 const finalResult = isDNI('45706768H');
-console.log(finalResult);
+// console.log(finalResult);
+
+// 2
+
+// quiero los 8 primeros numeros
+// dividirlos entre 23 y saber su resto
+
+function checkDNILetter(dni, num) {
+	const calculateEightPositions = dni.length - 1;
+
+	let numbers = [];
+
+	for (let i = 0; i < calculateEightPositions; i++) {
+		numbers.push(dni[i]);
+	}
+
+	const numbersDNI = numbers.join('');
+
+	const calculateRest = numbersDNI % num;
+	return calculateRest;
+}
+
+const resultCheckLetter = checkDNILetter('45706768H', 23);
+console.log(resultCheckLetter);
