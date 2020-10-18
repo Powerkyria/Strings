@@ -16,7 +16,7 @@ function palindromo(word) {
 const myPalindromo = palindromo('Ana');
 console.log(myPalindromo);
 
-// 2.2 CREA UNA FUNCION QUE ACEPTE UNA STRING POR PARAMETRO Y QUE DIGA SI ESA STRING ES UN PALINDROMO SIN SPLIT NI REVERSE
+// 2.2 SIN SPLIT NI REVERSE
 
 // function newPalindromo(word) {
 // 	const upperWord = word.toUpperCase();
