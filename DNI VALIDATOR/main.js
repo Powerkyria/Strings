@@ -64,16 +64,38 @@ const finalResult = isDNI('45706768H');
 // quiero los 8 primeros numeros
 // dividirlos entre 23 y saber su resto
 
+// function checkDNILetter(dni, num) {
+// 	const calculateEightPositions = dni.length - 1;
+
+// 	let numbers = [];
+
+// 	for (let i = 0; i < calculateEightPositions; i++) {
+// 		numbers.push(dni[i]);
+// 	}
+
+// 	const numbersDNI = numbers.join('');
+
+// 	const calculateRest = numbersDNI % num;
+// 	return calculateRest;
+// }
+
+// const resultCheckLetter = checkDNILetter('45706768H', 23);
+// console.log(resultCheckLetter);
+
+
+// SIN CONVERTIR EL STRING EN ARRAY
+
+
 function checkDNILetter(dni, num) {
 	const calculateEightPositions = dni.length - 1;
 
-	let numbers = [];
+	let numbersDNI = '';
 
 	for (let i = 0; i < calculateEightPositions; i++) {
-		numbers.push(dni[i]);
-	}
+		const charNumber = dni[i];
+		numbersDNI = numbersDNI + charNumber;
 
-	const numbersDNI = numbers.join('');
+	}
 
 	const calculateRest = numbersDNI % num;
 	return calculateRest;
