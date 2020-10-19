@@ -82,12 +82,9 @@ const finalResult = isDNI('45706768H');
 // const resultCheckLetter = checkDNILetter('45706768H', 23);
 // console.log(resultCheckLetter);
 
-
 // 2. Dividir el numeros del DNI entre 23 y sabiendo su resto comprobar por la tabla que es la letra correcta
 
-
 // SIN CONVERTIR EL STRING EN ARRAY
-
 
 function checkDNILetter(dni, num) {
 	const calculateEightPositions = dni.length - 1;
@@ -97,11 +94,15 @@ function checkDNILetter(dni, num) {
 	for (let i = 0; i < calculateEightPositions; i++) {
 		const charNumber = dni[i];
 		numbersDNI = numbersDNI + charNumber;
-
 	}
 
-	const calculateRest = numbersDNI % num;
-	return calculateRest;
+	const rest = numbersDNI % num;
+
+	const lastChar = dni.charAt(dni.length - 1);
+
+	const codigoLetters = 'TRWAGMYFPDXBNJZSQVHLCKET';
+
+	return codigoLetters[rest] === lastChar;
 }
 
 const resultCheckLetter = checkDNILetter('45706768H', 23);
