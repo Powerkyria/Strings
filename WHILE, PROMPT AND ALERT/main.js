@@ -4,7 +4,7 @@
 
 const question = "¿Qué mensaje quieres que pinte? Escribe 'terminar' para cerrar los modales";
 const exitMessage = 'terminar';
-let answer;
+let answer ='';
 
 function message(question, exitMessage) {
 	do {
