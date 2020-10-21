@@ -19,7 +19,7 @@ isNaN si no es un numero devuelve true
 
 // 1
 
-function validateDNIHasNumbers(dni) {
+function HasNumbers(dni) {
 	const numbers = dni.slice(0, 8);
 
 	if (isNaN(numbers)) {
@@ -29,27 +29,27 @@ function validateDNIHasNumbers(dni) {
 	return true;
 }
 
-const result = validateDNIHasNumbers('45706768H');
+const result = HasNumbers('45706768H');
 // console.log(result);
 
-function checkLastPositionIsLetter(dni) {
+function isLetterTheLastPosition(dni) {
 	const lastChar = dni.charAt(dni.length - 1);
 	return /[a-z]/i.test(lastChar);
 }
 
-const result2 = checkLastPositionIsLetter('45706768H');
+const result2 = isLetterTheLastPosition('45706768H');
 // console.log(result2);
 
-function longDNI(dni) {
+function HasRightDNISize(dni) {
 	return dni.length === 9;
 }
 
-const result3 = longDNI('45706768H');
+const result3 = HasRightDNISize('45706768H');
 // console.log(result3);
 
 // 2. Dividir el numeros del DNI entre 23 y sabiendo su resto comprobar por la tabla que es la letra correcta
 
-function checkDNILetter(dni) {
+function isRightDNILetter(dni) {
 	const combinationNumber = 23;
 
 	const numbersDNI = dni.slice(0, 8);
@@ -63,14 +63,14 @@ function checkDNILetter(dni) {
 	return codigoLetters[rest] === lastChar;
 }
 
-const resultCheckLetter = checkDNILetter('45706768H');
+const resultCheckLetter = isRightDNILetter('45706768H');
 // console.log(resultCheckLetter);
 
 function isDNIValidator(dni) {
-	return validateDNIHasNumbers(dni) &&
-		checkLastPositionIsLetter(dni) &&
-		longDNI(dni) &&
-		checkDNILetter(dni);
+	return HasNumbers(dni) &&
+		isLetterTheLastPosition(dni) &&
+		HasRightDNISize(dni) &&
+		isRightDNILetter(dni);
 }
 
 const finalResult = isDNIValidator('45706768H');
