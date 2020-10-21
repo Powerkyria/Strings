@@ -85,26 +85,20 @@ function hasPasswordLowerLetter2(password) {
 		'z',
 	];
 
-	// for (let i = 0; i < lowerLetters.length; i++) {
-	// 	if (password.includes(lowerLetters[i])) {
-	// 		return true;
-	// 	}
-	// }
-	// return false;
-
 	let i = 0;
-	while (i < lowerLetters.length) {
-		if (password.includes(lowerLetters[i])) {
-			return true;
-		}
+    let hasLowerLetter = false;
+
+	while (i < lowerLetters.length && !hasLowerLetter) {
+		hasLowerLetter = password.includes(lowerLetters[i]);
 		i++;
 	}
 
-	return false;
+	return hasLowerLetter;
 }
 
 const newResult2 = hasPasswordLowerLetter2('Hawai_5');
 console.log(newResult2);
+
 
 function hasPasswordUpperLetter(password) {
 	const upperLetters = [
