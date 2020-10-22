@@ -19,34 +19,7 @@ function hasRightDNISize(password) {
 const result = hasRightDNISize('Hawai_5');
 
 function hasPasswordLowerLetter(password) {
-	const lowerLetters = [
-		'a',
-		'b',
-		'c',
-		'd',
-		'e',
-		'f',
-		'g',
-		'h',
-		'i',
-		'j',
-		'k',
-		'l',
-		'm',
-		'n',
-		'o',
-		'p',
-		'q',
-		'r',
-		's',
-		't',
-		'u',
-		'v',
-		'w',
-		'x',
-		'y',
-		'z',
-	];
+	const lowerLetters = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
 
 	for (let i = 0; i < lowerLetters.length; i++) {
 		if (password.includes(lowerLetters[i])) {
@@ -58,34 +31,7 @@ function hasPasswordLowerLetter(password) {
 const result2 = hasPasswordLowerLetter('Hawai_5');
 
 function hasPasswordLowerLetter2(password) {
-	const lowerLetters = [
-		'a',
-		'b',
-		'c',
-		'd',
-		'e',
-		'f',
-		'g',
-		'h',
-		'i',
-		'j',
-		'k',
-		'l',
-		'm',
-		'n',
-		'o',
-		'p',
-		'q',
-		'r',
-		's',
-		't',
-		'u',
-		'v',
-		'w',
-		'x',
-		'y',
-		'z',
-	];
+	const lowerLetters = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
 
 	let i = 0;
 	let hasLowerLetter = false;
@@ -102,34 +48,7 @@ const newResult2 = hasPasswordLowerLetter2('Hawai_5');
 // console.log(newResult2);
 
 function hasPasswordUpperLetter(password) {
-	const upperLetters = [
-		'A',
-		'B',
-		'C',
-		'D',
-		'E',
-		'F',
-		'G',
-		'H',
-		'I',
-		'J',
-		'K',
-		'L',
-		'M',
-		'N',
-		'O',
-		'P',
-		'Q',
-		'R',
-		'S',
-		'T',
-		'U',
-		'V',
-		'W',
-		'X',
-		'Y',
-		'Z',
-	];
+	const upperLetters = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
 
 	for (let i = 0; i < upperLetters.length; i++) {
 		if (password.includes(upperLetters[i])) {
@@ -144,35 +63,7 @@ const result3 = hasPasswordUpperLetter('Hawai_5');
 //TRANSFORMAR EL FOR EN WHILE: ---------------> HECHO!
 
 function hasPasswordUpperLetter2(password) {
-	const upperLetters = [
-		'A',
-		'B',
-		'C',
-		'D',
-		'E',
-		'F',
-		'G',
-		'H',
-		'I',
-		'J',
-		'K',
-		'L',
-		'M',
-		'N',
-		'O',
-		'P',
-		'Q',
-		'R',
-		'S',
-		'T',
-		'U',
-		'V',
-		'W',
-		'X',
-		'Y',
-		'Z',
-	];
-
+	const upperLetters = [ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' ];
 	let i = 0;
 	let hasUpperLetter = false;
 
@@ -239,7 +130,7 @@ function hasPasswordOneNumber3(password) {
 }
 
 const newResult5two = hasPasswordOneNumber3('Hawai_5');
-console.log(newResult5two);
+// console.log(newResult5two);
 
 // QUITAR VARIABLES Y RETORNAR LAS FUNCIONES DIRECTAMENTE: ------------> HECHOU!
 
@@ -255,6 +146,95 @@ function isValidatePassword(password) {
 
 const finalResult = isValidatePassword('Hawai_5');
 // console.log(finalResult);
+
+// RECORRER ARRAY CON UN WHILE
+
+function potatxio() {
+	const arrayOfWord = [ 'amarillo', 'verde', 'potatxio' ];
+
+	// for ( let i = 0; i < arrayOfWord.length; i++){
+
+	// 	console.log(arrayOfWord[i]);
+
+	// }
+
+	let i = 0;
+	while (i < arrayOfWord.length) {
+		console.log(arrayOfWord[i]);
+		i++;
+	}
+}
+
+// potatxio();
+
+// RECORRER ARRAY CON UN WHILE DE NUEVO Y SIN MIRAR------> HECHO!
+
+function potatxio2() {
+	const arrayOfWord = [ 'amarillo', 'verde', 'potatxio' ];
+
+	let i = 0;
+	while (i < arrayOfWord.length) {
+		console.log(arrayOfWord[i]);
+		i++;
+	}
+}
+
+// potatxio2();
+
+// ENCONTRAR EL MILLON
+
+function oneMillionBaby() {
+	const amountMoney = [ 30, 50, 200, 1000000 ];
+	return amountMoney.includes(1000000);
+}
+
+const result50 = oneMillionBaby();
+// console.log(result50);
+
+// ENCONTRAR EL MILLON CON WHILE
+
+function oneMillionBaby2() {
+	const amountMoney = [ 30, 50, 200, 1000000 ];
+
+	// for(let i = 0; i < amountMoney.length; i++){
+
+	// 	if(amountMoney[i]===1000000){
+	// 		return true;
+	// 	}
+	// }
+	// return false;
+
+	//TERMINAR-----> HECHO!
+
+	let i = 0;
+	while (i < amountMoney.length) {
+		if (amountMoney[i] === 1000000) {
+			return true;
+		}
+		i++;
+	}
+	return false;
+}
+const result51 = oneMillionBaby2();
+// console.log(result51);
+
+// ENCONTRAR EL MILLON CON WHILE Y UN BOLEANO-----> HECHO!
+// guardar el resultado en una variable, dejar de ejecutar el bucle y enviar la respuesta.
+
+function oneMillionDollarsBaby() {
+	const amountMoney = [ 30, 50, 200, 1000000 ];
+	let i = 0;
+	let boleano = false;
+
+	while (i < amountMoney.length && !boleano) {
+		boleano = amountMoney[i] === 1000000;
+		i++;
+	}
+	return boleano;
+}
+
+const result52 = oneMillionDollarsBaby();
+console.log(result52);
 
 // CON EXPRESIONES REGULARES (version larga):
 
