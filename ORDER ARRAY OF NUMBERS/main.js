@@ -4,20 +4,21 @@
 
 // SIN SORT
 
-const randomNumbers = [ 23, 34, 5, 8, 10 ];
+const randomNumbers = [ 23, 34, 5, 10, 8, 17, 9, 2, 89 ];
 
 function orderNumbers(numbers) {
 	let numbersInOrder = [];
 
+	for (let i = 0; (i = numbers.length); i++) {
+		let maxNumber = Math.max(...numbers);
 
-	for (let i = 0; i < numbers.length; i++) {
+		const index = numbers.indexOf(maxNumber);
 
-		if (randomNumbers[i] < randomNumbers[i] + 1) {
-			numbersInOrder.push(randomNumbers[i]);
-		}
-		console.log(numbersInOrder);
+		const deleteMaxNumber = +numbers.splice(index, 1);
+		numbersInOrder.push(deleteMaxNumber);
 	}
 	return numbersInOrder;
 }
 
-orderNumbers(randomNumbers);
+const result = orderNumbers(randomNumbers);
+console.log(result);
