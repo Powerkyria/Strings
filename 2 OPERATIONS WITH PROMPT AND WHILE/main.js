@@ -14,14 +14,11 @@ let response = prompt(message);
 
 const messageNumberOne = 'Ingrese un número';
 const messageNumberTwo = 'Ingrese otro número';
-let x;
-let y;
-
+let x = prompt(messageNumberOne);
+let y = prompt(messageNumberTwo);
 const exitMessage = 'salir';
 
 while (response.toLowerCase() != exitMessage || response != 5) {
-	x = prompt(messageNumberOne);
-	y = prompt(messageNumberTwo);
 	if (response.toLowerCase() === 'sumar' || response == 1) {
 		add();
 	} else if (response.toLowerCase() === 'restar' || response == 2) {
