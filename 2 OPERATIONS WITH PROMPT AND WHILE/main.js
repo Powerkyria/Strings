@@ -11,6 +11,8 @@
 // let x = numbers.charAt(indexOfX);
 // let y = numbers.charAt(indexOfY);
 
+// METER EN UNA FUNCION HASTA EL WHILE
+
 const message = `Eliga una opción:
 
 1.Sumar, 2.Restar, 3.Multiplicar, 4.Dividir, 5.Salir`;
@@ -35,6 +37,9 @@ while (response.toLowerCase() != exitMessage && response != 5) {
 		divide(x, y);
 	}
 }
+
+//HACER Q VUELVA AL MENU PRINCIPAL
+//  Y ENTENDER BIEN EL XQ DEL WHILE
 
 function add(x, y) {
 	let resultA = Number(x) + Number(y);
