@@ -20,44 +20,41 @@ let response = prompt(message);
 //PEDIR UN NUMERO CADA VEZ
 const messageNumberOne = 'Ingrese un número';
 const messageNumberTwo = 'Ingrese otro número';
-let x;
-let y;
-
 const exitMessage = 'salir';
 
 while (response.toLowerCase() != exitMessage && response != 5) {
-	x = prompt(messageNumberOne);
-	y = prompt(messageNumberTwo);
+	let x = prompt(messageNumberOne);
+	let y = prompt(messageNumberTwo);
 	if (response.toLowerCase() === 'sumar' || response == 1) {	
-		add();
+		add(x, y);
 	} else if (response.toLowerCase() === 'restar' || response == 2) {
-		subtract();
+		subtract(x, y);
 	} else if (response.toLowerCase() === 'multiplicar' || response == 3) {
-		multiply();
+		multiply(x, y);
 	} else if (response.toLowerCase() === 'dividir' || response == 4) {
-		divide();
+		divide(x, y);
 	}
 }
 
-function add() {
+function add(x, y) {
 	let resultA = Number(x) + Number(y);
 	alert(`El resultado de sumar ${x} mas ${y} es ${resultA}`);
 	return resultA;
 }
 
-function subtract() {
+function subtract(x, y) {
 	let resultS = Number(x) - Number(y);
 	alert(`El resultado de restar ${x} menos ${y} es ${resultS}`);
 	return resultS;
 }
 
-function multiply() {
+function multiply(x, y) {
 	let resultM = Number(x) * Number(y);
 	alert(`El resultado de multiplicar ${x} por ${y} es ${resultM}`);
 	return resultM;
 }
 
-function divide() {
+function divide(x, y) {
 	let resultD = Number(x) / Number(y);
 	alert(`El resultado de dividir ${x} entre ${y} es ${resultD}`);
 	return resultD;
