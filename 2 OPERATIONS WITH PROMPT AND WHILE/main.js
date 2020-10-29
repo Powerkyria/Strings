@@ -25,22 +25,16 @@ let y;
 
 const exitMessage = 'salir';
 
-while (response.toLowerCase() != exitMessage || response != 5) {
-	if (response.toLowerCase() === 'sumar' || response == 1) {
-		x = prompt(messageNumberOne);
-		y = prompt(messageNumberTwo);
+while (response.toLowerCase() != exitMessage && response != 5) {
+	x = prompt(messageNumberOne);
+	y = prompt(messageNumberTwo);
+	if (response.toLowerCase() === 'sumar' || response == 1) {	
 		add();
 	} else if (response.toLowerCase() === 'restar' || response == 2) {
-		x = prompt(messageNumberOne);
-		y = prompt(messageNumberTwo);
 		subtract();
 	} else if (response.toLowerCase() === 'multiplicar' || response == 3) {
-		x = prompt(messageNumberOne);
-		y = prompt(messageNumberTwo);
 		multiply();
 	} else if (response.toLowerCase() === 'dividir' || response == 4) {
-		x = prompt(messageNumberOne);
-		y = prompt(messageNumberTwo);
 		divide();
 	}
 }
