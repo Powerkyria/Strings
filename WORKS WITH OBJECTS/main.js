@@ -242,3 +242,35 @@ const myProductsInOrderForName2 = orderProductsNames2(products);
 
 const orderProductsForName = products.map((articulo) => articulo.name.charAt(0).toUpperCase() + articulo.name.slice(1)).sort();
 // console.log(orderProductsForName);
+
+// ----------------
+// CON FOR Y METODO LOCALCOMPARE---> HECHO
+
+function orderProductsForNames(products) {
+	let nameOfProducts = [];
+	for (let i = 0; i < products.length; i++) {
+		nameOfProducts.push(products[i].name);
+		nameOfProducts.sort((a, b) => a.localeCompare(b));
+	}
+	return nameOfProducts;
+}
+const productsInOrderForName = orderProductsForNames(products);
+// console.log(productsInOrderForName);
+
+// CON FOR... OF Y METODO LOCALECOMPARE---> HECHO
+
+function orderProductsName(products) {
+	let myProducts = [];
+	for (const product of products) {
+		myProducts.push(product.name);
+		myProducts.sort((a, b) => a.localeCompare(b));
+	}
+	return myProducts;
+}
+const myProductsInOrderForName3 = orderProductsName(products);
+// console.log(myProductsInOrderForName3);
+
+// CON MAP Y METODO LOCALECOMPARE (para que no tenga en cuenta minúsculas, mayúsculas, tildes etc)---HECHOS
+
+const orderProductsForName2 = products.map((articulo) => articulo.name).sort((a, b) => a.localeCompare(b));
+// console.log(orderProductsForName2);
