@@ -1,7 +1,5 @@
 // 'use strict';
 
-const { Console } = require('console');
-
 let products = [
 	{
 		name: 'Televisor Xiaomi',
@@ -105,7 +103,7 @@ const computingProducts = products.filter((object) => object.category === 'compu
 
 // // 2. Haz una función que acepte esta lista de productos y devuelva la misma lista de productos pero sin la descripcion
 
-// CON FOR --->HECHO
+// CON FOR ---> HECHO
 
 function sameProductsWithoutDescription(element) {
 	let elementsWithoutDescription = [];
@@ -119,7 +117,7 @@ function sameProductsWithoutDescription(element) {
 const elements = sameProductsWithoutDescription(products);
 // console.log(elements);
 
-//CON FOR...OF---> HECHO
+//CON FOR...OF ---> HECHO
 
 function myProductsWithoutDescription(products) {
 	let newArray = [];
@@ -139,7 +137,7 @@ const productsWithoutDescription = products.filter((object) => delete object.des
 
 // // 3. Haz una función que acepte esta lista de productos y devuelva solo los libros de 5 estrellas
 
-// CON FOR--->HECHO
+// CON FOR ---> HECHO
 function onlyBooksFiveStars(obj) {
 	let myBooksFiveStars = [];
 	for (let i = 0; i < obj.length; i++) {
@@ -152,7 +150,7 @@ function onlyBooksFiveStars(obj) {
 const myBettersBooks = onlyBooksFiveStars(products);
 // console.log(myBettersBooks);
 
-//CON FOR...OF--->HECHO
+//CON FOR...OF ---> HECHO
 function onlyBooksFiveStars(products) {
 	let bestBooks = [];
 	for (const product of products) {
@@ -170,33 +168,43 @@ const myBettersBooks2 = onlyBooksFiveStars(products);
 const onlyBooksFiveStars3 = products.filter((object) => object.category === 'books' && object.stars === 5);
 // console.log(onlyBooksFiveStars3);
 
-// // 4. Haz una función que acepte esta lista de productos y que devuelva los productos ordenados de mayor a menor precio. usando sort
+// // 4. Haz una función que acepte esta lista de productos y que devuelva los productos ordenados de mayor a menor precio.
 
-// CON FOR
+// CON FOR ---> HECHO
 
-// function orderProducts(products) {
-// 	let priceOfProducts=[];
-// 	let ofBigToLowPrice=[];
-// 	for (let i = 0; i < products.length; i++) {
-	
-// 		priceOfProducts.push(products[i].price);
-// 		priceOfProducts.sort((a, b) => b - a);
-// 		ofBigToLowPrice.push(products[i])
-// 		}
-// 		};
-		
-// return ofBigToLowPrice;
-// }
-// const myProductsInOrderfalling = orderProducts(products);
+function orderProducts(products) {
+	let priceOfProducts = [];
+	for (let i = 0; i < products.length; i++) {
+		priceOfProducts.push(products[i]);
+		priceOfProducts.sort((a, b) => b.price - a.price);
+	}
+
+	return priceOfProducts;
+}
+const myProductsInOrderfalling = orderProducts(products);
 // console.log(myProductsInOrderfalling);
 
-// CON MAP ---> FALTA MEJORAR
-// const orderProductsForPrice = products.map((articulo) => articulo.price).sort((a, b) => b - a);
+//CON FOR...OF ---> HECHO
+
+function orderProducts2(products) {
+	let arrayOfProducts = [];
+	for (const product of products) {
+		arrayOfProducts.push(product);
+		arrayOfProducts.sort((a, b) => b.price - a.price);
+	}
+	return arrayOfProducts;
+}
+const myProductsInOrderfalling2 = orderProducts2(products);
+// console.log(myProductsInOrderfalling2);
+
+// CON MAP ---> HECHO
+
+const orderProductsForPrice = products.map((articulo) => articulo).sort((a, b) => b.price - a.price);
 // console.log(orderProductsForPrice);
 
 // // 5. Haz una función que acepte esta lista de productos y que devuelva solo los nombres de los productos ordenados por orden alfabetico.
 
-// CON FOR---> HECHO
+// CON FOR ---> HECHO
 
 function orderProductsNames(products) {
 	let nameOfProducts = [];
@@ -217,12 +225,12 @@ const myProductsInOrderForName = orderProductsNames(products);
 
 function orderProductsNames2(products) {
 	let myProducts = [];
-	let orderArray=[];
+	let orderArray = [];
 	for (const product of products) {
 		myProducts.push(product.name);
 	}
 	for (const myProduct of myProducts) {
-		orderArray.push( myProduct.charAt(0).toUpperCase() + myProduct.slice(1));
+		orderArray.push(myProduct.charAt(0).toUpperCase() + myProduct.slice(1));
 		orderArray.sort();
 	}
 	return orderArray;
@@ -230,7 +238,7 @@ function orderProductsNames2(products) {
 const myProductsInOrderForName2 = orderProductsNames2(products);
 // console.log(myProductsInOrderForName2);
 
-// CON MAP---> HECHO
+// CON MAP ---> HECHO
 
 const orderProductsForName = products.map((articulo) => articulo.name.charAt(0).toUpperCase() + articulo.name.slice(1)).sort();
 // console.log(orderProductsForName);
