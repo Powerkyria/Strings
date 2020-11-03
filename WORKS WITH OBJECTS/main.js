@@ -204,8 +204,6 @@ function orderProductsNames(products) {
 const myProductsInOrderForName = orderProductsNames(products);
 // console.log(myProductsInOrderForName);
 
-console.log(products.name.sort());
-
 // CON FOR... OF ---> HECHO
 
 function orderProductsNames2(products) {
