@@ -66,7 +66,7 @@ let products = [
 	},
 ];
 
-// // 1. Haz una función que acepte esta lista de productos y devuelva solo los productos de informatica
+// 1. Haz una función que acepte esta lista de productos y devuelva solo los productos de informatica
 
 // CON FOR ---> HECHO!
 
@@ -101,7 +101,7 @@ const newResult = myProductOfCOmputing(products);
 const computingProducts = products.filter((object) => object.category === 'computing');
 // console.log(computingProducts);
 
-// // 2. Haz una función que acepte esta lista de productos y devuelva la misma lista de productos pero sin la descripcion
+// 2. Haz una función que acepte esta lista de productos y devuelva la misma lista de productos pero sin la descripcion
 
 // CON FOR ---> HECHO
 
@@ -135,9 +135,10 @@ const withoutDescription = myProductsWithoutDescription(products);
 const productsWithoutDescription = products.filter((object) => delete object.description);
 // console.log(productsWithoutDescription);
 
-// // 3. Haz una función que acepte esta lista de productos y devuelva solo los libros de 5 estrellas
+// 3. Haz una función que acepte esta lista de productos y devuelva solo los libros de 5 estrellas
 
 // CON FOR ---> HECHO
+
 function onlyBooksFiveStars(obj) {
 	let myBooksFiveStars = [];
 	for (let i = 0; i < obj.length; i++) {
@@ -151,6 +152,7 @@ const myBettersBooks = onlyBooksFiveStars(products);
 // console.log(myBettersBooks);
 
 //CON FOR...OF ---> HECHO
+
 function onlyBooksFiveStars(products) {
 	let bestBooks = [];
 	for (const product of products) {
@@ -170,32 +172,13 @@ const onlyBooksFiveStars3 = products.filter((object) => object.category === 'boo
 
 // // 4. Haz una función que acepte esta lista de productos y que devuelva los productos ordenados de mayor a menor precio.
 
-// CON FOR ---> HECHO
+// HECHO
 
 function orderProducts(products) {
-	let priceOfProducts = [];
-	for (let i = 0; i < products.length; i++) {
-		priceOfProducts.push(products[i]);
-		priceOfProducts.sort((a, b) => b.price - a.price);
-	}
-
-	return priceOfProducts;
+	return products.sort((a, b) => b.price - a.price);
 }
 const myProductsInOrderfalling = orderProducts(products);
 // console.log(myProductsInOrderfalling);
-
-//CON FOR...OF ---> HECHO
-
-function orderProducts2(products) {
-	let arrayOfProducts = [];
-	for (const product of products) {
-		arrayOfProducts.push(product);
-		arrayOfProducts.sort((a, b) => b.price - a.price);
-	}
-	return arrayOfProducts;
-}
-const myProductsInOrderfalling2 = orderProducts2(products);
-// console.log(myProductsInOrderfalling2);
 
 // CON MAP ---> HECHO
 
@@ -221,6 +204,8 @@ function orderProductsNames(products) {
 const myProductsInOrderForName = orderProductsNames(products);
 // console.log(myProductsInOrderForName);
 
+console.log(products.name.sort());
+
 // CON FOR... OF ---> HECHO
 
 function orderProductsNames2(products) {
@@ -243,7 +228,11 @@ const myProductsInOrderForName2 = orderProductsNames2(products);
 const orderProductsForName = products.map((articulo) => articulo.name.charAt(0).toUpperCase() + articulo.name.slice(1)).sort();
 // console.log(orderProductsForName);
 
-// ----------------
+// CON MAP Y METODO LOCALECOMPARE (para que no tenga en cuenta minúsculas, mayúsculas, tildes etc)---HECHOS
+
+const orderProductsForName2 = products.map((articulo) => articulo.name).sort((a, b) => a.localeCompare(b));
+// console.log(orderProductsForName2);
+
 // CON FOR Y METODO LOCALCOMPARE---> HECHO
 
 function orderProductsForNames(products) {
@@ -269,8 +258,3 @@ function orderProductsName(products) {
 }
 const myProductsInOrderForName3 = orderProductsName(products);
 // console.log(myProductsInOrderForName3);
-
-// CON MAP Y METODO LOCALECOMPARE (para que no tenga en cuenta minúsculas, mayúsculas, tildes etc)---HECHOS
-
-const orderProductsForName2 = products.map((articulo) => articulo.name).sort((a, b) => a.localeCompare(b));
-// console.log(orderProductsForName2);
