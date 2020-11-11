@@ -227,12 +227,16 @@ const myProductsInOrderForName2 = orderProductsNames2(products);
 
 // CON MAP ---> HECHO
 
-const orderProductsForName = products.map((articulo) => articulo.name.charAt(0).toUpperCase() + articulo.name.slice(1)).sort();
+const orderProductsForName = products
+	.map((articulo) => articulo.name.charAt(0).toUpperCase() + articulo.name.slice(1))
+	.sort();
 // console.log(orderProductsForName);
 
 // CON MAP Y METODO LOCALECOMPARE (para que no tenga en cuenta minúsculas, mayúsculas, tildes etc)---HECHOS
 
-const orderProductsForName2 = products.map((articulo) => articulo.name).sort((a, b) => a.localeCompare(b));
+const orderProductsForName2 = products
+	.map((articulo) => articulo.name)
+	.sort((a, b) => a.localeCompare(b));
 // console.log(orderProductsForName2);
 
 // CON FOR Y METODO LOCALCOMPARE---> HECHO
