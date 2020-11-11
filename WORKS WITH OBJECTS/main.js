@@ -130,9 +130,13 @@ function myProductsWithoutDescription(products) {
 const withoutDescription = myProductsWithoutDescription(products);
 // console.log(withoutDescription)
 
-// CON FILTER ----> HECHO!
+// CON MAP ----> HECHO!
 
-const productsWithoutDescription = products.filter((object) => delete object.description);
+const productsWithoutDescription = products.map((object) => 
+{
+	delete object.description;
+	return object;
+});
 // console.log(productsWithoutDescription);
 
 // 3. Haz una función que acepte esta lista de productos y devuelva solo los libros de 5 estrellas
