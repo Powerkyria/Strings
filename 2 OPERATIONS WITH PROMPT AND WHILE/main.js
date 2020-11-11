@@ -18,7 +18,7 @@ function calculator() {
 	let response = prompt(message);
 	const exitMessage = 'salir';
 
-	while (response.toLowerCase() != exitMessage && response != 5) {
+	if (response.toLowerCase() != exitMessage && response != 5) {
 		const messageNumberOne = 'Ingrese un número';
 		const messageNumberTwo = 'Ingrese otro número';
 		let x = prompt(messageNumberOne);
@@ -37,6 +37,36 @@ function calculator() {
 	}
 }
 calculator();
+
+
+
+
+function calculator2() {
+	const message = `Eliga una opción:
+
+1.Sumar, 2.Restar, 3.Multiplicar, 4.Dividir, 5.Salir`;
+	let response = prompt(message);
+	const exitMessage = 'salir';
+
+	while (response.toLowerCase() != exitMessage && response != 5) {
+		const messageNumberOne = 'Ingrese un número';
+		const messageNumberTwo = 'Ingrese otro número';
+		let x = prompt(messageNumberOne);
+		let y = prompt(messageNumberTwo);
+
+		if (response.toLowerCase() === 'sumar' || response == 1) {
+			add(x, y);
+		} else if (response.toLowerCase() === 'restar' || response == 2) {
+			subtract(x, y);
+		} else if (response.toLowerCase() === 'multiplicar' || response == 3) {
+			multiply(x, y);
+		} else if (response.toLowerCase() === 'dividir' || response == 4) {
+			divide(x, y);
+		}
+		calculator2();
+	}
+}
+// calculator2();
 
 //HACER Q VUELVA AL MENU PRINCIPAL--->HECHO
 
