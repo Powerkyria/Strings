@@ -36,37 +36,41 @@ function calculator() {
 		calculator();
 	}
 }
-calculator();
-
-
+// calculator();
 
 
 function calculator2() {
-	const message = `Eliga una opción:
-
-1.Sumar, 2.Restar, 3.Multiplicar, 4.Dividir, 5.Salir`;
-	let response = prompt(message);
+	let response='';
 	const exitMessage = 'salir';
 
-	while (response.toLowerCase() != exitMessage && response != 5) {
+	while (response.toLowerCase() !== exitMessage && response !== '5') {
+
+		const message = `Eliga una opción: 1.Sumar, 2.Restar, 3.Multiplicar, 4.Dividir, 5.Salir`;
+		response = prompt(message);
+		
 		const messageNumberOne = 'Ingrese un número';
 		const messageNumberTwo = 'Ingrese otro número';
-		let x = prompt(messageNumberOne);
-		let y = prompt(messageNumberTwo);
 
 		if (response.toLowerCase() === 'sumar' || response == 1) {
+			let x = prompt(messageNumberOne);
+			let y = prompt(messageNumberTwo);
 			add(x, y);
 		} else if (response.toLowerCase() === 'restar' || response == 2) {
+			let x = prompt(messageNumberOne);
+			let y = prompt(messageNumberTwo);
 			subtract(x, y);
 		} else if (response.toLowerCase() === 'multiplicar' || response == 3) {
+			let x = prompt(messageNumberOne);
+			let y = prompt(messageNumberTwo);
 			multiply(x, y);
 		} else if (response.toLowerCase() === 'dividir' || response == 4) {
+			let x = prompt(messageNumberOne);
+			let y = prompt(messageNumberTwo);
 			divide(x, y);
 		}
-		calculator2();
 	}
 }
-// calculator2();
+calculator2();
 
 //HACER Q VUELVA AL MENU PRINCIPAL--->HECHO
 
