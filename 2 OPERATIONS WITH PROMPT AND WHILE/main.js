@@ -41,9 +41,8 @@ function calculator() {
 
 function calculator2() {
 	let response='';
-	const exitMessage = 'salir';
-
-	while (response.toLowerCase() !== exitMessage && response !== '5') {
+	
+	while (isOptionClose(response)) {
 
 		const message = `Eliga una opción: 1.Sumar, 2.Restar, 3.Multiplicar, 4.Dividir, 5.Salir`;
 		response = prompt(message);
@@ -51,19 +50,19 @@ function calculator2() {
 		const messageNumberOne = 'Ingrese un número';
 		const messageNumberTwo = 'Ingrese otro número';
 
-		if (response.toLowerCase() === 'sumar' || response === '1') {
+		if (isOptionAdd(response)) {
 			let x = prompt(messageNumberOne);
 			let y = prompt(messageNumberTwo);
 			add(x, y);
-		} else if (response.toLowerCase() === 'restar' || response === '2') {
+		} else if (isOptionSubtract(response)) {
 			let x = prompt(messageNumberOne);
 			let y = prompt(messageNumberTwo);
 			subtract(x, y);
-		} else if (response.toLowerCase() === 'multiplicar' || response === '3') {
+		} else if (isOptionMultiply(response)) {
 			let x = prompt(messageNumberOne);
 			let y = prompt(messageNumberTwo);
 			multiply(x, y);
-		} else if (response.toLowerCase() === 'dividir' || response === '4') {
+		} else if (isOptionDivide(response)) {
 			let x = prompt(messageNumberOne);
 			let y = prompt(messageNumberTwo);
 			divide(x, y);
@@ -71,6 +70,28 @@ function calculator2() {
 	}
 }
 calculator2();
+
+
+function isOptionAdd(response){
+	return response.toLowerCase() === 'sumar' || response === '1';
+}
+
+function isOptionSubtract(response){
+	return response.toLowerCase() === 'restar' || response === '2';
+}
+
+function isOptionMultiply(response){
+	return response.toLowerCase() === 'multiplicar' || response === '3';
+}
+
+function isOptionDivide(response){
+	return response.toLowerCase() === 'dividir' || response === '4';
+}
+
+function isOptionClose(response){
+	const exitMessage = 'salir';
+	return response.toLowerCase() !== exitMessage && response !== '5';
+}
 
 //HACER Q VUELVA AL MENU PRINCIPAL--->HECHO
 
