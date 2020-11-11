@@ -51,19 +51,19 @@ function calculator2() {
 		const messageNumberOne = 'Ingrese un número';
 		const messageNumberTwo = 'Ingrese otro número';
 
-		if (response.toLowerCase() === 'sumar' || response == 1) {
+		if (response.toLowerCase() === 'sumar' || response === '1') {
 			let x = prompt(messageNumberOne);
 			let y = prompt(messageNumberTwo);
 			add(x, y);
-		} else if (response.toLowerCase() === 'restar' || response == 2) {
+		} else if (response.toLowerCase() === 'restar' || response === '2') {
 			let x = prompt(messageNumberOne);
 			let y = prompt(messageNumberTwo);
 			subtract(x, y);
-		} else if (response.toLowerCase() === 'multiplicar' || response == 3) {
+		} else if (response.toLowerCase() === 'multiplicar' || response === '3') {
 			let x = prompt(messageNumberOne);
 			let y = prompt(messageNumberTwo);
 			multiply(x, y);
-		} else if (response.toLowerCase() === 'dividir' || response == 4) {
+		} else if (response.toLowerCase() === 'dividir' || response === '4') {
 			let x = prompt(messageNumberOne);
 			let y = prompt(messageNumberTwo);
 			divide(x, y);
