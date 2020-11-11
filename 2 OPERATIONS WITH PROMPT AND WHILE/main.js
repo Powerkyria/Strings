@@ -11,35 +11,37 @@
 // let x = numbers.charAt(indexOfX);
 // let y = numbers.charAt(indexOfY);
 
-// METER EN UNA FUNCION HASTA EL WHILE
-
-const message = `Eliga una opción:
+function calculator() {
+	const message = `Eliga una opción:
 
 1.Sumar, 2.Restar, 3.Multiplicar, 4.Dividir, 5.Salir`;
+	let response = prompt(message);
+	const exitMessage = 'salir';
 
-let response = prompt(message);
+	while (response.toLowerCase() != exitMessage && response != 5) {
+		const messageNumberOne = 'Ingrese un número';
+		const messageNumberTwo = 'Ingrese otro número';
+		let x = prompt(messageNumberOne);
+		let y = prompt(messageNumberTwo);
 
-//PEDIR UN NUMERO CADA VEZ
-const messageNumberOne = 'Ingrese un número';
-const messageNumberTwo = 'Ingrese otro número';
-const exitMessage = 'salir';
-
-while (response.toLowerCase() != exitMessage && response != 5) {
-	let x = prompt(messageNumberOne);
-	let y = prompt(messageNumberTwo);
-	if (response.toLowerCase() === 'sumar' || response == 1) {	
-		add(x, y);
-	} else if (response.toLowerCase() === 'restar' || response == 2) {
-		subtract(x, y);
-	} else if (response.toLowerCase() === 'multiplicar' || response == 3) {
-		multiply(x, y);
-	} else if (response.toLowerCase() === 'dividir' || response == 4) {
-		divide(x, y);
+		if (response.toLowerCase() === 'sumar' || response == 1) {
+			add(x, y);
+			calculator();
+		} else if (response.toLowerCase() === 'restar' || response == 2) {
+			subtract(x, y);
+			calculator();
+		} else if (response.toLowerCase() === 'multiplicar' || response == 3) {
+			multiply(x, y);
+			calculator();
+		} else if (response.toLowerCase() === 'dividir' || response == 4) {
+			divide(x, y);
+			calculator();
+		}
 	}
 }
+calculator();
 
-//HACER Q VUELVA AL MENU PRINCIPAL
-//  Y ENTENDER BIEN EL XQ DEL WHILE
+//HACER Q VUELVA AL MENU PRINCIPAL--->HECHO
 
 function add(x, y) {
 	let resultA = Number(x) + Number(y);
