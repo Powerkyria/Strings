@@ -26,17 +26,14 @@ function calculator() {
 
 		if (response.toLowerCase() === 'sumar' || response == 1) {
 			add(x, y);
-			calculator();
 		} else if (response.toLowerCase() === 'restar' || response == 2) {
 			subtract(x, y);
-			calculator();
 		} else if (response.toLowerCase() === 'multiplicar' || response == 3) {
 			multiply(x, y);
-			calculator();
 		} else if (response.toLowerCase() === 'dividir' || response == 4) {
 			divide(x, y);
-			calculator();
 		}
+		calculator();
 	}
 }
 calculator();
