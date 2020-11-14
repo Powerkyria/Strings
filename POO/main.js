@@ -1,126 +1,125 @@
-// pojo (plain old javascript object)
+// // pojo (plain old javascript object)
 
-let user = {
-	name: 'jonay',
-	Age: 9,
-};
+// let user = {
+// 	name: 'jonay',
+// 	Age: 9,
+// };
 
-hasLegalAge();
+// hasLegalAge();
 
-//  Clase -> molde de galletas
+// //  Clase -> molde de galletas
 
-//  Instancia -> galleta
+// //  Instancia -> galleta
 
-//  Encapsulacion, herencia(delegacion de metodos), polimorfismo
+// //  Encapsulacion, herencia(delegacion de metodos), polimorfismo
 
-//Tradicional
+// //Tradicional
 
-function User() {
-	this.name = 'jonay';
-	this.age = 9;
+// function User() {
+// 	this.name = 'jonay';
+// 	this.age = 9;
 
-	this.hasLegalAge = function() {
-		return this.age >= 18;
-	};
-}
+// 	this.hasLegalAge = function() {
+// 		return this.age >= 18;
+// 	};
+// }
 
-let user = new User();
+// let user = new User();
 
-//Moderna
+// //Moderna
 
-class User {
-	constructor(name, age) {
-		this.name = 'jonay';
-		this.age = 9;
-	}
+// class User {
+// 	constructor(name, age) {
+// 		this.name = 'jonay';
+// 		this.age = 9;
+// 	}
 
-	hasLegalAge() {
-		return this.age >= 18;
-	}
-}
-let user = new User();
+// 	hasLegalAge() {
+// 		return this.age >= 18;
+// 	}
+// }
+// let user = new User();
 
-// la mia
-//el patron module
+// // la mia
+// //el patron module
 
-function User() {
-	let legalAge = 18;
-	let name = 'jonay';
-	let age = 9;
-	return {
-		name: name,
-		age: age,
-		hasLegalAge: hasLegalAge,
-	};
+// function User() {
+// 	let legalAge = 18;
+// 	let name = 'jonay';
+// 	let age = 9;
+// 	return {
+// 		name: name,
+// 		age: age,
+// 		hasLegalAge: hasLegalAge,
+// 	};
 
-	function hasLegalAge() {
-		return this.age >= legalAge;
-	}
-}
-let user = User();
+// 	function hasLegalAge() {
+// 		return this.age >= legalAge;
+// 	}
+// }
+// let user = User();
 
-//Constructor
+// //Constructor
 
-function User(initialName, initialAge) {
-	let name = initialName;
-	let age = initialAge;
-	return {
-		name: name,
-		age: age,
-		hasLegalAge: hasLegalAge,
-	};
+// function User(initialName, initialAge) {
+// 	let name = initialName;
+// 	let age = initialAge;
+// 	return {
+// 		name: name,
+// 		age: age,
+// 		hasLegalAge: hasLegalAge,
+// 	};
 
-	function hasLegalAge() {
-		return age >= 18;
-	}
-}
+// 	function hasLegalAge() {
+// 		return age >= 18;
+// 	}
+// }
 
-function User(name, age) {
-	return {
-		name: name,
-		age: age,
-		hasLegalAge: hasLegalAge,
-	};
+// function User(name, age) {
+// 	return {
+// 		name: name,
+// 		age: age,
+// 		hasLegalAge: hasLegalAge,
+// 	};
 
-	function hasLegalAge() {
-		return age >= 18;
-	}
-}
+// 	function hasLegalAge() {
+// 		return age >= 18;
+// 	}
+// }
 
-let user = User('jonay', 9);
+// let user = User('jonay', 9);
 
-//  los metodos get y set
+// //  los metodos get y set
 
-function User() {
-	let legalAge = 18;
-	let name = 'jonay';
-	let age = 9;
-	return {
-		name: name,
-		age: age,
-		hasLegalAge: hasLegalAge,
-		getName: getName,
-		setName: setName,
-	};
+// function User() {
+// 	let legalAge = 18;
+// 	let name = 'jonay';
+// 	let age = 9;
+// 	return {
+// 		name: name,
+// 		age: age,
+// 		hasLegalAge: hasLegalAge,
+// 		getName: getName,
+// 		setName: setName,
+// 	};
 
-	function hasLegalAge() {
-		return this.age >= legalAge;
-	}
+// 	function hasLegalAge() {
+// 		return this.age >= legalAge;
+// 	}
 
-	function getName() {
-		return name;
-	}
+// 	function getName() {
+// 		return name;
+// 	}
 
-	function setName(newName) {
-		name = newName;
-	}
-}
-
+// 	function setName(newName) {
+// 		name = newName;
+// 	}
+// }
 
 //  1. Crea una clase usuario con la propiedad nombre, esta clase tendrás un metodo que sea welcomeMessage
 //  y retornará`¡Hola ${name}!`. Tras lo cual instancia la clase e imprime su mensaje de bienvenida por pantalla.
 
-function User(name) {
+function User2(name) {
 	return {
 		name: name,
 		welcomeMessage: welcomeMessage,
@@ -131,8 +130,8 @@ function User(name) {
 	}
 }
 
-let user = User('Jonay');
-console.log(user.welcomeMessage());
+let user2 = User2('Jonay');
+// console.log(user2.welcomeMessage());
 
 // 2. Crea una clase llamada Cuenta(Account) que tendrá los siguientes atributos: user (que es una persona) y amount (puede tener decimales). Construye los siguientes métodos para la clase:
 
@@ -146,17 +145,15 @@ console.log(user.welcomeMessage());
 //  extra: El titular será obligatorio y la cantidad es opcional.
 
 function Account(user, amount) {
-	let user = '';
-	let amount;
 	return {
 		user: user,
 		amount: amount,
 		getUser: getUser,
 		setUser: setUser,
-        getAmount: getAmount,
-        formatCount:formatCount,
-        add:add,
-        subtract:subtract,
+		getAmount: getAmount,
+		formatCount: formatCount,
+		add: add,
+		subtract: subtract,
 	};
 
 	function getUser() {
@@ -171,18 +168,22 @@ function Account(user, amount) {
 		return amount;
 	}
 
-    function formatCount(){
-     return `La cantidad actual es {quantity}`;
-    }
+	function formatCount() {
+		return `La cantidad actual es ${amount} €`;
+	}
 
-    function add(quantity){
+	function add(quantity) {
+		quantity < 0 ? amount : (amount += quantity);
+	}
 
-     return ;
-    }
-
-    function subtract(quantity){
-     return ;
-    }
+	function subtract(quantity) {
+		amount === 0 ? 0 : (amount -= quantity);
+	}
 }
 
-let acount= Account('Powerkyria', 300)
+let account = Account('Powerkyria', 300);
+console.log(account.getUser());
+account.add(23);
+console.log(account.formatCount());
+account.subtract(3);
+console.log(account.getAmount());
