@@ -3,29 +3,67 @@
 // 1.Crea una clase Rectangulo(Rectangle), Circulo(circle) y Triangulo(Triangle).
 // - La clase Rectangle tendrá un contructor donde reciba el alto y el ancho.
 // - La clase Circle tendrá un contructor donde reciba el radio.
-// - La clase Triangle tendrá un contructor donde reciba uno de sus lados. 
-// Para simplificar vamos a suponer que sus 3 lados son iguales.
+// - La clase Triangle tendrá un contructor donde reciba uno de sus lados.(Triangulo equilatero)
 
-// - La clase Rectangle tendrá un metodo que se llamará calculateArea() 
+// - La clase Rectangle tendrá un metodo que se llamará calculateArea()
 // y retornará su area usando la informacion que se la paso por el contructor.
-// Te dejo la formulas porque esto es una clase de programacion no de matematicas.
-// Area = alto x ancho
-// - La clase Circle tendrá un metodo que se llamará calculateArea() 
-// y retornará su area usando la informacion que se la paso por el contructor.
-// Te dejo la formulas porque esto es una clase de programacion no de matematicas.
-// Area =  pi(3,14) * radio²
-// no se como escribir radio 
-// - La clase Triangle tendrá un metodo que se llamará calculateArea() 
-// y retornará su area usando la informacion que se la paso por el contructor.
-// Te dejo la formulas porque esto es una clase de programacion no de matematicas.
-// Area = (√3/4) * a²
+// Area Rectangulo = alto x ancho.
 
-// probablemente te haga falta usar el metodo "Math.pow()" y "Math.sqrt()".
+// - La clase Circle tendrá un metodo que se llamará calculateArea()
+// y retornará su area usando la informacion que se la paso por el contructor.
+// Area Circulo=  pi(3,14) * radio².
+
+// - La clase Triangle tendrá un metodo que se llamará calculateArea()
+// y retornará su area usando la informacion que se la paso por el contructor.
+// Area Triangulo= (√3/4) * a².
+
+// Metodo para elevar al exponente:"Math.pow(base, exponente)"
+// Metodo para hallar raiz cuadrada "Math.sqrt(n)".
+
+function Rectangle(height, width) {
+	return {
+		height: height,
+		width: width,
+		calculateArea: calculateArea,
+	};
+
+	function calculateArea() {
+		return height * width;
+	}
+}
+
+function Circle(radius) {
+	let exponent = 2;
+	return {
+		radius: radius,
+		calculateArea: calculateArea,
+	};
+	function calculateArea() {
+		return 3.14 * radius ** exponent;
+	}
+}
+
+function Triangle(side) {
+	return {
+		side: side,
+		calculateArea: calculateArea,
+	};
+	function calculateArea() {
+		return Math.sqrt(3) / 4 * Math.pow(side, 2);
+	}
+}
+
+let rectangle = Rectangle(2, 4);
+console.log(rectangle.calculateArea());
+let circle = Circle(6);
+console.log(circle.calculateArea());
+let triangle = Triangle(6);
+console.log(triangle.calculateArea());
 
 // 2. Crea una array y guarda dentro una instacia de Rectangle, Circle y Triangle.
 // Recorre el array y imprime por consola el valor del area de cada forma geometrica usando el metodo previamente creado de calculateArea.
 
-// ¿Te acuerdas que ibamos a ver un ejemplo de polimorfismo? Aqui lo tienes. 
+// ¿Te acuerdas que ibamos a ver un ejemplo de polimorfismo? Aqui lo tienes.
 // Rectangle, Circle y Triangle son objetos distintos pero al todos tener el metodo calculateArea.
 // Puedes tratarlos todos como forma geometricas y imprimir su area aunque todos sean diferentes.
 
@@ -43,6 +81,6 @@
 // Como pasa en el caso de las apis.
 // Pero no es posible compartir clases entre cliente y servidor.
 // Esto es debido al que el comportamiento como por ejemplo el metodo "hasLegalAge()" esta escrito en js pero
-// el servidor puede trabajar diferentes lenguakes en java, c#, php, etc. 
+// el servidor puede trabajar diferentes lenguakes en java, c#, php, etc.
 // Estos lenguajes normalmente no son compatibles con js.
 // Por esto al compartir informacion es posible que tengas que hacer esta clase de conversiones.
