@@ -63,6 +63,15 @@ console.log(triangle.calculateArea());
 // 2. Crea una array y guarda dentro una instacia de Rectangle, Circle y Triangle.
 // Recorre el array y imprime por consola el valor del area de cada forma geometrica usando el metodo previamente creado de calculateArea.
 
+const instanceRectangle = Rectangle(2, 2);
+const instanceCircle = Circle(3);
+const instanceTriangle = Triangle(3);
+
+let array = [ instanceRectangle, instanceCircle, instanceTriangle ];
+
+let paintArea = array.map((instance) => instance.calculateArea());
+console.log(paintArea);
+
 // ¿Te acuerdas que ibamos a ver un ejemplo de polimorfismo? Aqui lo tienes.
 // Rectangle, Circle y Triangle son objetos distintos pero al todos tener el metodo calculateArea.
 // Puedes tratarlos todos como forma geometricas y imprimir su area aunque todos sean diferentes.
