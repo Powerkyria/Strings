@@ -54,11 +54,11 @@ function Triangle(side) {
 }
 
 let rectangle = Rectangle(2, 4);
-console.log(rectangle.calculateArea());
+// console.log(rectangle.calculateArea());
 let circle = Circle(6);
-console.log(circle.calculateArea());
+// console.log(circle.calculateArea());
 let triangle = Triangle(6);
-console.log(triangle.calculateArea());
+// console.log(triangle.calculateArea());
 
 // 2. Crea una array y guarda dentro una instacia de Rectangle, Circle y Triangle.
 // Recorre el array y imprime por consola el valor del area de cada forma geometrica usando el metodo previamente creado de calculateArea.
@@ -70,21 +70,51 @@ const instanceTriangle = Triangle(3);
 let array = [ instanceRectangle, instanceCircle, instanceTriangle ];
 
 let paintArea = array.map((instance) => instance.calculateArea());
-console.log(paintArea);
+// console.log(paintArea);
 
 // ¿Te acuerdas que ibamos a ver un ejemplo de polimorfismo? Aqui lo tienes.
 // Rectangle, Circle y Triangle son objetos distintos pero al todos tener el metodo calculateArea.
 // Puedes tratarlos todos como forma geometricas y imprimir su area aunque todos sean diferentes.
 
-// Recuerdas la clase usuario que ya habias hecho previamente pues la vamos a volver a utilizar.
+// Recuerdas la clase usuario que ya habias hecho previamente (en la capeta POO) pues la vamos a volver a utilizar.
 
 // 1.Añadele las propiedades age y password.
 
 // 2. Crea un metodo que convierta una instancia de usuario a pojo de un usuario ConvertToPojo.
 // Este metodo recibirá una instacia de la clase usuario por parametro y retornará un pojo con la informacion del usuario.
 
+function User(name, age, password) {
+	return {
+		name: name,
+		age: age,
+		password: password,
+		welcomeMessage: welcomeMessage,
+		convertToPojo: convertToPojo,
+	};
+
+	function welcomeMessage() {
+		return `¡Hola ${name}!`;
+	}
+//Investigando
+	function convertToPojo(user) {
+        return  Object.create(user);
+	}
+}
+
+let user2 = User('Jonay');
+let user3 = User('Powerkyria', 34, 'potatxio');
+// console.log(user2.welcomeMessage());
+console.log(user3);
+
 // 3. Crea un metodo que convierta un pojo con la informacion del usuario a una instancia de tu clase User, ConvertToUser.
 // Este metodo recibirá un pojo con la informacion del usuario por parametro y retornará un pojo con la informacion del usuario.
+
+//Investigando...
+
+// function convertToUser(pojo){
+//     return
+// }
+// // console.log(-----.convertToUser());
 
 // Los pojos. Plain old javascript object. Son necesarios para compartir informacion entre cliente y servidor.
 // Como pasa en el caso de las apis.
