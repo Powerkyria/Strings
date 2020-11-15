@@ -95,16 +95,22 @@ function User(name, age, password) {
 	function welcomeMessage() {
 		return `¡Hola ${name}!`;
 	}
-//Investigando
+
 	function convertToPojo(user) {
-        return  Object.create(user);
+		return `
+		{ name: ${user.name},
+		age: ${user.age},
+		password: ${user.password},
+		welcomeMessage(),
+		convertToPojo(),
+	}`;
 	}
 }
 
 let user2 = User('Jonay');
 let user3 = User('Powerkyria', 34, 'potatxio');
-// console.log(user2.welcomeMessage());
-console.log(user3);
+console.log(user2.welcomeMessage());
+console.log(user3.convertToPojo(user3));
 
 // 3. Crea un metodo que convierta un pojo con la informacion del usuario a una instancia de tu clase User, ConvertToUser.
 // Este metodo recibirá un pojo con la informacion del usuario por parametro y retornará un pojo con la informacion del usuario.
