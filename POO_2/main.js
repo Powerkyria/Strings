@@ -1,5 +1,7 @@
 'use strict';
 
+const { POINT_CONVERSION_COMPRESSED } = require('constants');
+
 // 1.Crea una clase Rectangulo(Rectangle), Circulo(circle) y Triangulo(Triangle).
 // - La clase Rectangle tendrá un contructor donde reciba el alto y el ancho.
 // - La clase Circle tendrá un contructor donde reciba el radio.
@@ -80,47 +82,53 @@ let paintArea = array.map((instance) => instance.calculateArea());
 
 // 1.Añadele las propiedades age y password.
 
-// 2. Crea un metodo que convierta una instancia de usuario a pojo de un usuario ConvertToPojo.
-// Este metodo recibirá una instacia de la clase usuario por parametro y retornará un pojo con la informacion del usuario.
-
 function User(name, age, password) {
 	return {
-		name: name,
-		age: age,
-		password: password,
-		welcomeMessage: welcomeMessage,
-		convertToPojo: convertToPojo,
+		name,
+		age,
+		password,
+		welcomeMessage,
+		convertToPojo,
+		convertToUser,
 	};
 
 	function welcomeMessage() {
 		return `¡Hola ${name}!`;
 	}
 
+	// 2. Crea un metodo que convierta una instancia de usuario a pojo de un usuario ConvertToPojo.
+	// Este metodo recibirá una instacia de la clase usuario por parametro y retornará un pojo con la informacion del usuario.
+
 	function convertToPojo(user) {
-		return `
-		{ name: ${user.name},
-		age: ${user.age},
-		password: ${user.password},
-		welcomeMessage(),
-		convertToPojo(),
-	}`;
+		return {
+			name: user.name,
+			age: user.age,
+			password: user.password,
+		};
+	}
+
+	// 3. Crea un metodo que convierta un pojo con la informacion del usuario a una instancia de tu clase User, ConvertToUser.
+	// Este metodo recibirá un pojo con la informacion del usuario por parametro y retornará una instancia de la clase user con la informacion que contiene el pojo.
+
+	function convertToUser(pojo) {
+		let newUser = User(pojo.name, pojo.age, pojo.password);
+		return newUser;
 	}
 }
 
-let user2 = User('Jonay');
-let user3 = User('Powerkyria', 34, 'potatxio');
-console.log(user2.welcomeMessage());
-console.log(user3.convertToPojo(user3));
+let user1 = User('Jonay');
+console.log(user1.welcomeMessage());
 
-// 3. Crea un metodo que convierta un pojo con la informacion del usuario a una instancia de tu clase User, ConvertToUser.
-// Este metodo recibirá un pojo con la informacion del usuario por parametro y retornará un pojo con la informacion del usuario.
+let user2 = User('Powerkyria', 34, 'potatxio');
+console.log(user2.convertToPojo(user2));
 
-//Investigando...
+let user3 = {
+	name: 'Carlos',
+	age: 21,
+	password: 'baticueva',
+};
 
-// function convertToUser(pojo){
-//     return
-// }
-// // console.log(-----.convertToUser());
+console.log(user2.convertToUser(user3));
 
 // Los pojos. Plain old javascript object. Son necesarios para compartir informacion entre cliente y servidor.
 // Como pasa en el caso de las apis.
