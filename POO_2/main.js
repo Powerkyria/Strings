@@ -1,6 +1,7 @@
 'use strict';
 
-const { POINT_CONVERSION_COMPRESSED } = require('constants');
+
+//POLIMORFISMO
 
 // 1.Crea una clase Rectangulo(Rectangle), Circulo(circle) y Triangulo(Triangle).
 // - La clase Rectangle tendrá un contructor donde reciba el alto y el ancho.
@@ -63,13 +64,13 @@ let triangle = Triangle(6);
 // console.log(triangle.calculateArea());
 
 // 2. Crea una array y guarda dentro una instacia de Rectangle, Circle y Triangle.
-// Recorre el array y imprime por consola el valor del area de cada forma geometrica usando el metodo previamente creado de calculateArea.
+// Recorre el array e imprime por consola el valor del area de cada forma geometrica usando el metodo previamente creado de calculateArea.
 
-const instanceRectangle = Rectangle(2, 2);
-const instanceCircle = Circle(3);
-const instanceTriangle = Triangle(3);
+const rectangle2 = Rectangle(2, 2);
+const circle2 = Circle(3);
+const triangle2 = Triangle(3);
 
-let array = [ instanceRectangle, instanceCircle, instanceTriangle ];
+let array = [ rectangle2, circle2, triangle2 ];
 
 let paintArea = array.map((instance) => instance.calculateArea());
 // console.log(paintArea);
@@ -117,7 +118,7 @@ function User(name, age, password) {
 }
 
 let user1 = User('Jonay');
-console.log(user1.welcomeMessage());
+// console.log(user1.welcomeMessage());
 
 let user2 = User('Powerkyria', 34, 'potatxio');
 console.log(user2.convertToPojo(user2));
