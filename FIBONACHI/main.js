@@ -45,6 +45,16 @@ function printNumbers2(acc) {
 }
 printNumbers2(100);
 
+//EJEMPLO DE RECURSIVIDAD
+function recursiveExample(number){
+	if(number !== 100){
+		console.log(number);
+		number++;
+		recursiveExample(number);
+	}
+}
+recursiveExample(0);
+
 
 // 2. Ahora haz que estas dos funciones sean parametrizables. Y en lugar de imprimir los 100 primeros números, imprimirá la cantidad de números que se le pasen por parámetro.
 
