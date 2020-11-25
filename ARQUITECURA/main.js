@@ -1,6 +1,6 @@
 'use strict';
 
-// Una arquitectura de software, también denominada arquitectura lógica, consiste en un conjunto de patrones y abstracciones coherentes que proporcionan un marco definido y claro para interactuar con el código fuente del software
+// Una arquitectura de software, también denominada arquitectura lógica, consiste en un conjunto de patrones y abstracciones coherentes que proporcionan un marco definido y claro para interactuar con el código fuente del software.
 
 // veremos una muy usada y que puedes usar en front muy parecida a modelo vista controller y en realidad es practicamente igual
 // Vamos hoy a usar un poco de poo orientada al front.
@@ -13,13 +13,13 @@
 // Esta es un arquitectura muy usada, tanto en frontend como en backend.
 // Probablemente esta arquitectura junto con la de modelo vista controller sean 2 de las mas usadas.
 // En esta arquitectura la vista se encarga de la responsabilidad de gestionar la interfaz de usuario.
-// El modelo de la persistencia.En este caso nuestra clase client tomará está responsabilidad
-// trayendo los datos de la api.
+// El modelo de la persistencia.En este caso nuestra clase client tomará está responsabilidad trayendo los datos de la api.
 // Y por ultimo el presenter se encargará de conectar el client y la vista.
 
 // Volvamos al ejercicio.
 
 // Vamos a crear un clase presenter que va ha aceptar por el constructor las clases view y client.
+
 // La clase presenter tendrá un metodo Execute.
 // Este metodo tomará la clase client, usará el metodo de la instancia de client,
 // FindStarWarsPeople.
@@ -27,8 +27,48 @@
 // El metodo de la clase cliente FindStarWarsPeople tomará un funcion como parametro, un callback.
 // Una vez se traiga los datos pasará al callback dicha información.
 
+function View (){
+    return{
+        showPeople,
+    }
+
+    function showPeople(){
+        
+    }
+}
+
+function Client (){
+    return{
+        result,
+        findStarWarsPeople,
+    }
+
+
+    function findStarWarsPeople(callback){
+        fetch('https://swapi.dev/api/people')
+        .then(response => response.json())
+        .then(data => {
+            result= data.result;
+        }
+    }
+}
+
+function Presenter (){
+    return{
+        Client,
+        View,
+        execute,
+    }
+    function execute(){
+        let client = Client();
+        return client.findStarWarsPeople(result);;
+    }
+}
+
+
+
 // El presenter le pasará por parametro al metodo FindStarWarsPeople un callback.
-// Dicho callback recibirá la información de los persoanjes de star wars
+// Dicho callback recibirá la información de los personajes de star wars
 // y se los pasará a un metodo de la vista(view), showPeople.
 // El metodo showPeople cogerá la informacion y la pintará en el html.
 // Mostrando, name, birth_year, eye_color, height
