@@ -44,23 +44,23 @@ function View() {
 		}
 	}
 }
-let view = View();
+// let view = View();
 
-let people = [
-	{
-		name: 'Luke Skywalker',
-		birth_year: '19BBY',
-		eye_color: 'blue',
-		height: '172',
-	},
-	{
-		name: 'C-3PO',
-		birth_year: '112BBY',
-		eye_color: 'yellow',
-		height: '167',
-	},
-];
-view.showPeople(people);
+// let people = [
+// 	{
+// 		name: 'Luke Skywalker',
+// 		birth_year: '19BBY',
+// 		eye_color: 'blue',
+// 		height: '172',
+// 	},
+// 	{
+// 		name: 'C-3PO',
+// 		birth_year: '112BBY',
+// 		eye_color: 'yellow',
+// 		height: '167',
+// 	},
+// ];
+// view.showPeople(people);
 
 function Client() {
 	return {
