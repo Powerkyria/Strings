@@ -33,14 +33,13 @@ function View() {
 	};
 
 	function showPeople(people) {
-		for (let i = 0; i < people.length; i++) {
+		for (let person of people) {
 			let HTMLcode = `<ul>
-            <li id="name">${people[i].name}</li>
-            <li id="birthday">${people[i].birth_year}</li>
-            <li id="eyeColors">${people[i].eye_color}</li>
-            <li id="height">${people[i].height}</li>
+            <li>${person.name}</li>
+            <li>${person.birth_year}</li>
+            <li>${person.eye_color}</li>
+            <li>${person.height}</li>
         </ul>`;
-
 			document.write(HTMLcode);
 		}
 	}
