@@ -77,17 +77,23 @@ function Client() {
 //let client = Client();
 //client.findStarWarsPeople(console.log);
 
-function Presenter() {
+function Presenter(client, view) {
 	return {
-		Client,
-		View,
-		execute,
-	};
+		execute
+    };
+    
 	function execute() {
-		let client = Client();
-		return client.findStarWarsPeople(result);
-	}
+		client.findStarWarsPeople(callShowPeople);
+    }
+    
+    function callShowPeople(rawPeople){
+        view.showPeople(rawPeople);
+    }
 }
+let client1= Client();
+let view1 = View();
+let presenter = Presenter(client1, view1);
+presenter.execute();
 
 // El presenter le pasará por parametro al metodo FindStarWarsPeople un callback.
 // Dicho callback recibirá la información de los personajes de star wars
@@ -97,12 +103,8 @@ function Presenter() {
 
 // aqui tienes un ejemplo del lo que te devolverá la api
 
-// foto
-
 // Basicamente esta arquitectura ayuda a separar la persistencia  "el cliente" de "la vista" y conecta ambos por medio de un presenter
 // el html que uses para el ejercicio, puede ser sin estilos. Y solo con los texto en una caja
-
-// repasar tema apis
 
 // practicamente esta arquitectura la puedes usar para cualquier front que hagas y no quieras utilizar frameworks.
 
