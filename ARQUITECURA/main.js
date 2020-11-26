@@ -27,9 +27,9 @@
 // El metodo de la clase cliente FindStarWarsPeople tomará un funcion como parametro, un callback.
 // Una vez se traiga los datos pasará al callback dicha información.
 
-function View (){
+function View(){
     return{
-        showPeople,
+        showPeople
     }
 
     function showPeople(){
@@ -37,27 +37,31 @@ function View (){
     }
 }
 
-function Client (){
+function Client(){
     return{
-        result,
-        findStarWarsPeople,
+        findStarWarsPeople
     }
-
 
     function findStarWarsPeople(callback){
         fetch('https://swapi.dev/api/people')
         .then(response => response.json())
         .then(data => {
-            result= data.result;
-        }
+            callback(data.results);
+        });
     }
 }
 
-function Presenter (){
+//let client = Client();
+//client.findStarWarsPeople(console.log);
+
+
+
+
+function Presenter(){
     return{
         Client,
         View,
-        execute,
+        execute
     }
     function execute(){
         let client = Client();
