@@ -39,12 +39,13 @@ function View() {
             <li>${person.birth_year}</li>
             <li>${person.eye_color}</li>
             <li>${person.height}</li>
-        </ul>`;
-			document.write(HTMLcode);
+            </ul>`;
+			document.getElementById('people').innerHTML += HTMLcode;
 		}
 	}
 }
 let view = View();
+
 let people = [
 	{
 		name: 'Luke Skywalker',
