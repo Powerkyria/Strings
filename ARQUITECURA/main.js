@@ -27,49 +27,67 @@
 // El metodo de la clase cliente FindStarWarsPeople tomará un funcion como parametro, un callback.
 // Una vez se traiga los datos pasará al callback dicha información.
 
-function View(){
-    return{
-        showPeople
-    }
+function View() {
+	return {
+		showPeople,
+	};
 
-    function showPeople(){
-        
-    }
+	function showPeople(people) {
+		for (let i = 0; i < people.length; i++) {
+			let HTMLcode = `<ul>
+            <li id="name">${people[i].name}</li>
+            <li id="birthday">${people[i].birth_year}</li>
+            <li id="eyeColors">${people[i].eye_color}</li>
+            <li id="height">${people[i].height}</li>
+        </ul>`;
+
+			document.write(HTMLcode);
+		}
+	}
 }
+let view = View();
+let people = [
+	{
+		name: 'Luke Skywalker',
+		birth_year: '19BBY',
+		eye_color: 'blue',
+		height: '172',
+	},
+	{
+		name: 'C-3PO',
+		birth_year: '112BBY',
+		eye_color: 'yellow',
+		height: '167',
+	},
+];
+view.showPeople(people);
 
-function Client(){
-    return{
-        findStarWarsPeople
-    }
+function Client() {
+	return {
+		findStarWarsPeople,
+	};
 
-    function findStarWarsPeople(callback){
-        fetch('https://swapi.dev/api/people')
-        .then(response => response.json())
-        .then(data => {
-            callback(data.results);
-        });
-    }
+	function findStarWarsPeople(callback) {
+		fetch('https://swapi.dev/api/people').then((response) => response.json()).then((data) => {
+			callback(data.results);
+		});
+	}
 }
 
 //let client = Client();
 //client.findStarWarsPeople(console.log);
 
-
-
-
-function Presenter(){
-    return{
-        Client,
-        View,
-        execute
-    }
-    function execute(){
-        let client = Client();
-        return client.findStarWarsPeople(result);;
-    }
+function Presenter() {
+	return {
+		Client,
+		View,
+		execute,
+	};
+	function execute() {
+		let client = Client();
+		return client.findStarWarsPeople(result);
+	}
 }
-
-
 
 // El presenter le pasará por parametro al metodo FindStarWarsPeople un callback.
 // Dicho callback recibirá la información de los personajes de star wars
@@ -84,12 +102,10 @@ function Presenter(){
 // Basicamente esta arquitectura ayuda a separar la persistencia  "el cliente" de "la vista" y conecta ambos por medio de un presenter
 // el html que uses para el ejercicio, puede ser sin estilos. Y solo con los texto en una caja
 
-// repasar tema apis 
+// repasar tema apis
 
 // practicamente esta arquitectura la puedes usar para cualquier front que hagas y no quieras utilizar frameworks.
 
 // Para componente con comportamiento en el html, lo puedes gestionar con una vista y un presenter. Cuando necesites tratar con informacion que persista, ya sea una api o un archivo, puedes usar un cliente o modelo para esta funcion.
-
-
 
 // Consejos: empieza por la clase client, y has pruebas para ver si funciona la llamada a la api.Tras lo cual programa la vista pasandole datos falsos. Y por ultimo los conectes a traves del presenter
