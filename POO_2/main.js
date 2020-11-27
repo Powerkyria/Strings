@@ -1,6 +1,6 @@
 'use strict';
 
-//IFFE, Immediately-invoked Function Expressions: CREA UN SCOPE INDEPENDIENTE PARA TRABAJAR
+//IIFE, Immediately-invoked Function Expressions: CREA UN SCOPE INDEPENDIENTE PARA TRABAJAR
 
 //METODO PARA IMPORTAR E IMPORTAR CODIGO/LIBRERIAS
 let namespace = {
