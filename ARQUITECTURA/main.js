@@ -37,67 +37,61 @@
 
 // Consejos: empieza por la clase client, y has pruebas para ver si funciona la llamada a la api.Tras lo cual programa la vista pasandole datos falsos. Y por ultimo los conectes a traves del presenter
 
-(function(){
-    function main(){
-    
-    function View() {
-        return {
-            showPeople,
-        };
-    
-        function showPeople(people) {
-            for (let person of people) {
-                let HTMLcode = `<ul>
+(function() {
+	function main() {
+		function View() {
+			return {
+				showPeople,
+			};
+
+			function showPeople(people) {
+				for (let person of people) {
+					let HTMLcode = `<ul>
                 <li>${person.name}</li>
                 <li>${person.birth_year}</li>
                 <li>${person.eye_color}</li>
                 <li>${person.height}</li>
                 </ul>`;
-                document.getElementById('people').innerHTML += HTMLcode;
-            }
-        }
-    }
-    
-    function Client() {
-        return {
-            findStarWarsPeople,
-        };
-    
-        function findStarWarsPeople(callback) {
-            fetch('https://swapi.dev/api/people')
-            .then((response) => response.json())
-            .then((data) => {
-                callback(data.results);
-            });
-        }
-    }
-    
-    function Presenter(client, view) {
-        return {
-            execute
-        };
-        
-        function execute() {
-            client.findStarWarsPeople(callShowPeople);
-        }
-        
-        //Terminar
-        function callShowPeople(rawPeople){
-            let personApi;
-            for (let person of rawPeople){
-                personApi = person.name;
-                // ${person.birth_year},
-                // ${person.eye_color},
-                // ${person.height}`
-            }
-            view.showPeople(rawPeople);
-        }
-    }
-    
-    let client1= Client();
-    let view1 = View();
-    let presenter = Presenter(client1, view1);
-    presenter.execute();
-    }
-    main();
-    });
+					document.getElementById('people').innerHTML += HTMLcode;
+				}
+			}
+		}
+
+		function Client() {
+			return {
+				findStarWarsPeople,
+			};
+
+			function findStarWarsPeople(callback) {
+				fetch('https://swapi.dev/api/people').then((response) => response.json()).then((data) => {
+					callback(data.results);
+				});
+			}
+		}
+
+		function Presenter(client, view) {
+			return {
+				execute,
+				callShowPeople,
+			};
+
+			function execute() {
+				client.findStarWarsPeople(callShowPeople);
+			}
+
+			// Terminar
+			function callShowPeople(rawPeople) {
+				for (let person of rawPeople) {
+					person.name, person.birth_year, person.eye_color, person.height;
+				}
+				view.showPeople(rawPeople);
+			}
+		}
+
+		let client = Client();
+		let view = View();
+		let presenter = Presenter(client, view);
+		presenter.execute();
+	}
+	main();
+})();
