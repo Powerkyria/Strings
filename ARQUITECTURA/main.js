@@ -79,11 +79,25 @@
 				client.findStarWarsPeople(callShowPeople);
 			}
 
-			// Terminar
+			// QUITARLE A RAW PEOPLE LAS PROPIEDADES Q NO SON NECESARIAS PARA LA VISTA
 			function callShowPeople(rawPeople) {
-				for (let person of rawPeople) {
-					person.name, person.birth_year, person.eye_color, person.height;
-				}
+				const deleteUnnecessaryProperties = rawPeople.map((person) => {
+					delete person.mass;
+					delete person.skin_color;
+					delete person.hair_color;
+					delete person.gender;
+					delete person.homeworld;
+					delete person.films;
+					delete person.species;
+					delete person.vehicles;
+					delete person.starships;
+					delete person.created;
+					delete person.edited;
+					delete person.url;
+					return person;
+				});
+				rawPeople = deleteUnnecessaryProperties;
+				console.log(rawPeople);
 				view.showPeople(rawPeople);
 			}
 		}
