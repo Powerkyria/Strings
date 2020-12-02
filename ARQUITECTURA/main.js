@@ -71,7 +71,6 @@
 	function Presenter(client, view) {
 		return {
 			execute,
-			callShowPeople,
 		};
 
 		function execute() {
@@ -80,7 +79,7 @@
 
 		// QUITARLE A RAW PEOPLE LAS PROPIEDADES Q NO SON NECESARIAS PARA LA VISTA
 		function callShowPeople(rawPeople) {
-			const deleteUnnecessaryProperties = rawPeople.map((person) => {
+			const people = rawPeople.map((person) => {
 				return {
 					name: person.name,
 					birth_year: person.birth_year,
@@ -89,10 +88,10 @@
 				};
 			});
 			// console.log(deleteUnnecessaryProperties);
-			view.showPeople(deleteUnnecessaryProperties);
+			view.showPeople(people);
 		}
 	}
-	
+
 	function main() {
 		let client = Client();
 		let view = View();
