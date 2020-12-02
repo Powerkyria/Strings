@@ -82,23 +82,15 @@
 			// QUITARLE A RAW PEOPLE LAS PROPIEDADES Q NO SON NECESARIAS PARA LA VISTA
 			function callShowPeople(rawPeople) {
 				const deleteUnnecessaryProperties = rawPeople.map((person) => {
-					delete person.mass;
-					delete person.skin_color;
-					delete person.hair_color;
-					delete person.gender;
-					delete person.homeworld;
-					delete person.films;
-					delete person.species;
-					delete person.vehicles;
-					delete person.starships;
-					delete person.created;
-					delete person.edited;
-					delete person.url;
-					return person;
+					return {
+						name: person.name,
+						birth_year: person.birth_year,
+						eye_color: person.eye_color,
+						height: person.height,
+					};
 				});
-				rawPeople = deleteUnnecessaryProperties;
-				console.log(rawPeople);
-				view.showPeople(rawPeople);
+				// console.log(deleteUnnecessaryProperties);
+				view.showPeople(deleteUnnecessaryProperties);
 			}
 		}
 
