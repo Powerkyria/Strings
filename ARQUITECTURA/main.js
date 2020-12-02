@@ -38,62 +38,62 @@
 // Consejos: empieza por la clase client, y has pruebas para ver si funciona la llamada a la api.Tras lo cual programa la vista pasandole datos falsos. Y por ultimo los conectes a traves del presenter
 
 (function() {
-	function main() {
-		function View() {
-			return {
-				showPeople,
-			};
+	function View() {
+		return {
+			showPeople,
+		};
 
-			function showPeople(people) {
-				for (let person of people) {
-					let HTMLcode = `<ul>
+		function showPeople(people) {
+			for (let person of people) {
+				let HTMLcode = `<ul>
                 <li>${person.name}</li>
                 <li>${person.birth_year}</li>
                 <li>${person.eye_color}</li>
                 <li>${person.height}</li>
                 </ul>`;
-					document.getElementById('people').innerHTML += HTMLcode;
-				}
+				document.getElementById('people').innerHTML += HTMLcode;
 			}
 		}
+	}
 
-		function Client() {
-			return {
-				findStarWarsPeople,
-			};
+	function Client() {
+		return {
+			findStarWarsPeople,
+		};
 
-			function findStarWarsPeople(callback) {
-				fetch('https://swapi.dev/api/people').then((response) => response.json()).then((data) => {
-					callback(data.results);
-				});
-			}
+		function findStarWarsPeople(callback) {
+			fetch('https://swapi.dev/api/people').then((response) => response.json()).then((data) => {
+				callback(data.results);
+			});
+		}
+	}
+
+	function Presenter(client, view) {
+		return {
+			execute,
+			callShowPeople,
+		};
+
+		function execute() {
+			client.findStarWarsPeople(callShowPeople);
 		}
 
-		function Presenter(client, view) {
-			return {
-				execute,
-				callShowPeople,
-			};
-
-			function execute() {
-				client.findStarWarsPeople(callShowPeople);
-			}
-
-			// QUITARLE A RAW PEOPLE LAS PROPIEDADES Q NO SON NECESARIAS PARA LA VISTA
-			function callShowPeople(rawPeople) {
-				const deleteUnnecessaryProperties = rawPeople.map((person) => {
-					return {
-						name: person.name,
-						birth_year: person.birth_year,
-						eye_color: person.eye_color,
-						height: person.height,
-					};
-				});
-				// console.log(deleteUnnecessaryProperties);
-				view.showPeople(deleteUnnecessaryProperties);
-			}
+		// QUITARLE A RAW PEOPLE LAS PROPIEDADES Q NO SON NECESARIAS PARA LA VISTA
+		function callShowPeople(rawPeople) {
+			const deleteUnnecessaryProperties = rawPeople.map((person) => {
+				return {
+					name: person.name,
+					birth_year: person.birth_year,
+					eye_color: person.eye_color,
+					height: person.height,
+				};
+			});
+			// console.log(deleteUnnecessaryProperties);
+			view.showPeople(deleteUnnecessaryProperties);
 		}
-
+	}
+	
+	function main() {
 		let client = Client();
 		let view = View();
 		let presenter = Presenter(client, view);
