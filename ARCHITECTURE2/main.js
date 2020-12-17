@@ -16,10 +16,13 @@ Consejos: Empieza por la clase client, luego programa la vista y por último con
 			findStarWarsPeople,
 		};
 
-		function findStarWarsPeople(callback) {
-			fetch('https://swapi.dev/api/people').then((response) => response.json()).then((data) => {
+		function findStarWarsPeople(callback, errorCallback) {
+			fetch('https://swapi.dev/api/peopl')
+			.then((response) => response.json())
+			.then((data) => {
 				callback(data.results);
-			});
+			})
+			.catch(error => console.log(error));
 		}
 	}
 
@@ -71,3 +74,5 @@ Consejos: Empieza por la clase client, luego programa la vista y por último con
 	}
 	main();
 })();
+
+//el metodo findStarWarsPeople recibira un segundo callback por parametro, el error y llamara al metodo de viwe people para pintarlo por pantalla.
