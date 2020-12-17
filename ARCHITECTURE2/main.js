@@ -13,59 +13,61 @@ Consejos: Empieza por la clase client, luego programa la vista y por último con
 (() => {
 	function Client() {
 		return {
-			findStarWarsPeople
+			findStarWarsPeople,
 		};
 
 		function findStarWarsPeople(callback) {
-			fetch('https://swapi.dev/api/people')
-			.then(response => response.json())
-			.then(data => {
+			fetch('https://swapi.dev/api/people').then((response) => response.json()).then((data) => {
 				callback(data.results);
 			});
 		}
 	}
 
-	function callback(results){
-	    console.log(results);
-	}
+	function View() {
+		return {
+			showPeople,
+		};
 
-function View(){
-	return{
-		showPeople,
-	}
-
-	function showPeople(people){
-		for(const person of people){
-            let HTMLcode =`<ul>
+		function showPeople(people) {
+			for (const person of people) {
+				let HTMLcode = `<ul>
 			<li>${person.name}</li>
 			<li>${person.birth_year}</li>
 			<li>${person.eye_color}</li>
 			<li>${person.height}</li>
-		</ul>`
-		document.getElementById('people2').innerHTML += HTMLcode;
+		</ul>`;
+				document.getElementById('people2').innerHTML += HTMLcode;
+			}
 		}
 	}
-}
+
+	function Presenter(view, client) {
+		return {
+			execute,
+		};
+
+		function execute() {
+			client.findStarWarsPeople(infoPeople);
+		}
+
+		function infoPeople(data) {
+			const people = data.map(person => {
+				return {
+					name: person.name,
+					birth_year: person.birth_year,
+					eye_color: person.eye_color,
+					height:person.height,
+				}
+			});
+			view.showPeople(people)
+		}
+	}
 
 	function main() {
 		let client = Client();
-		client.findStarWarsPeople(callback);
 		let view = View();
-		let people = [{
-			name: 'gato',
-			birth_year: 23,
-			eye_color: 'blue',
-			height:12
-		},
-		{
-			name: 'cofre',
-			birth_year: 105,
-			eye_color: 'brown',
-			height: 34
-		}
-	
-	];
-		view.showPeople(people);
+		let presenter = Presenter(view, client);
+		presenter.execute();
 	}
 	main();
 })();
